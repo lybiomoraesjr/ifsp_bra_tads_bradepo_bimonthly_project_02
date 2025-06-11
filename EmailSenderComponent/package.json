@@ -1,17 +1,52 @@
 {
-  "name": "emailsendercomponent",
+  "name": "@lybio/email-sender-component",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A flexible and extensible email sending component built with TypeScript, supporting SMTP, templates, and attachments",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "src/templates/**/*",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp -r src/templates dist/",
     "start": "node dist/main.js",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build",
+    "clean": "rm -rf dist",
+    "dev": "tsc --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "email",
+    "smtp",
+    "nodemailer",
+    "typescript",
+    "component",
+    "template",
+    "attachment",
+    "mail",
+    "send",
+    "handlebars"
+  ],
+  "author": {
+    "name": "Lybio",
+    "email": "lybio@example.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lybio/email-sender-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lybio/email-sender-component/issues"
+  },
+  "homepage": "https://github.com/lybio/email-sender-component#readme",
   "type": "commonjs",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/nodemailer": "^6.4.17",
@@ -23,5 +58,8 @@
     "dotenv": "^16.5.0",
     "handlebars": "^4.7.8",
     "nodemailer": "^7.0.3"
+  },
+  "peerDependencies": {
+    "nodemailer": "^7.0.0"
   }
 }
